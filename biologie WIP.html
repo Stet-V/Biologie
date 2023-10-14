@@ -33,7 +33,6 @@
 
       .sidebar {
         height: 100%;
-        width: 0px;
         position: fixed;
         z-index: 1;
         top: 0;
@@ -41,8 +40,9 @@
         background-color: #16181c;
         overflow-x: hidden;
         padding-top: 20px;
-        border-right: none;
+        border-right: solid 1px #2f3336;
         transition: 0.15s;
+        width: 270px;
       }
 
       .sidebar a {
@@ -153,15 +153,6 @@
         display: none;
       }
 
-      .hidebuttonmobile{
-        right: 0;
-        top: 0;
-        height: 0%;
-        position: fixed;
-        width: 35px;
-        cursor: default;
-      }
-
       @media only screen and (min-device-width : 320px) and (max-device-width : 1024px) {
         .main {
           margin: 5px 0px 0px 0px;
@@ -170,11 +161,12 @@
         }
 
         .sidehover {
-          width: 7%;
+          display: none !important;
         }
 
 		.sidebar {
 			padding-top: 0px;
+			width: 35%;
 		}
 
 		.sidebar a {
@@ -187,6 +179,7 @@
 		.sidebar a:hover {
         	background: none;
         	color: #e7e9ea;
+		text-decoration: underline;
         }
 
         .paragraph {
@@ -227,14 +220,10 @@
           margin: 0px 0px 10px 10px;
         }
 
-        .hidebuttonmobile{
-        height: 100%;
-        }
       }
     </style>
   </head>
   <body>
-    <div onclick="hide()" class="unselectable, hidebuttonmobile"></div>
     <div class="main" id="main" style="opacity: 1; user-select: auto;">
       <h1 id="title1">Acizii Nucleici</h1>
       <div id="paragraph1" class="paragraph" style="animation: auto ease 0s 1 normal none running none;">
@@ -273,7 +262,7 @@
       </div>
     </div>
     <div id="sidehover" class="sidehover" style="display: block;"></div>
-    <div id="sidebar" class="sidebar" style="width: 0px; border-right: none;">
+    <div id="sidebar" class="sidebar" style="left: -300px;">
       <a onclick="title1()" class="unselectable">Acizii Nucleici</a>
       <a onclick="title2()" class="unselectable">Mentiuni</a>
       <a onclick="title3()" class="unselectable">Teoria Imigrationista</a>
@@ -295,25 +284,23 @@
 
 	  function mouseOver() {
     var sidebar = document.getElementById("sidebar");
-    if (screen.width <= 1024) {
-        sidebar.style.width = "35%";
-    } else {
-        sidebar.style.width = "270px";
-    }
-    sidebar.style.borderRight = "solid 1px #2f3336";
+        sidebar.style.left = "0px";
 }
 
       function mouseOut() {
-        document.getElementById("sidebar").style.width = "0px";
-        document.getElementById("sidebar").style.borderRight = "none";
+        var sidebar = document.getElementById("sidebar");
+        if (screen.width <= 1024) {
+			sidebar.style.left = "-36%";
+                } else {
+        sidebar.style.left = "-300px";
+    }
       }
 
       function title1() {
 		if(document.getElementById("main").style.userSelect === "auto"){
         	document.getElementById("title1").scrollIntoView();
 			if (screen.width <= 1024) {
-			document.getElementById("sidebar").style.width = "0px";
-			document.getElementById("sidebar").style.borderRight = "none";
+			document.getElementById("sidebar").style.left = "-36%";
 			}
     		 var as = document.getElementById("paragraph1")
         	as.style.animation = "none";
@@ -327,8 +314,7 @@
 		if(document.getElementById("main").style.userSelect === "auto"){
         	document.getElementById("title2").scrollIntoView();
 			if (screen.width <= 1024) {
-			document.getElementById("sidebar").style.width = "0px";
-			document.getElementById("sidebar").style.borderRight = "none";
+			document.getElementById("sidebar").style.left = "-36%";
 			}
     		 var as = document.getElementById("paragraph2")
         	as.style.animation = "none";
@@ -342,8 +328,7 @@
 		if(document.getElementById("main").style.userSelect === "auto"){
         	document.getElementById("title3").scrollIntoView();
 			if (screen.width <= 1024) {
-			document.getElementById("sidebar").style.width = "0px";
-			document.getElementById("sidebar").style.borderRight = "none";
+			document.getElementById("sidebar").style.left = "-36%";
 			}
     		 var as = document.getElementById("paragraph3")
         	as.style.animation = "none";
@@ -357,8 +342,7 @@
 		if(document.getElementById("main").style.userSelect === "auto"){
         	document.getElementById("title4").scrollIntoView();
 			if (screen.width <= 1024) {
-			document.getElementById("sidebar").style.width = "0px";
-			document.getElementById("sidebar").style.borderRight = "none";
+			document.getElementById("sidebar").style.left = "-36%";
 			}
     		 var as = document.getElementById("paragraph4")
         	as.style.animation = "none";
@@ -372,8 +356,7 @@
 		if(document.getElementById("main").style.userSelect === "auto"){
         	document.getElementById("title5").scrollIntoView();
 			if (screen.width <= 1024) {
-			document.getElementById("sidebar").style.width = "0px";
-			document.getElementById("sidebar").style.borderRight = "none";
+			document.getElementById("sidebar").style.left = "-36%";
 			}
     		 var as = document.getElementById("paragraph5")
         	as.style.animation = "none";
@@ -387,8 +370,7 @@
 		if(document.getElementById("main").style.userSelect === "auto"){
         	document.getElementById("title6").scrollIntoView();
 			if (screen.width <= 1024) {
-			document.getElementById("sidebar").style.width = "0px";
-			document.getElementById("sidebar").style.borderRight = "none";
+			document.getElementById("sidebar").style.left = "-36%";
 			}
     		 var as = document.getElementById("paragraph6")
         	as.style.animation = "none";
@@ -410,17 +392,20 @@
         var sidebar = document.getElementById("sidebar");
         if (main.style.opacity === "0") {
           main.style.opacity = "1.0"
-	  main.style.userSelect = "auto";
+    	  main.style.userSelect = "auto";
           side.style.display = "block";
           hideAnim('paragraph');
         } else {
           main.style.opacity = "0";
-    	  sidebar.style.width = "0px";
-	  main.style.userSelect = "none";
-    	  sidebar.style.borderRight = "none";
+    	  main.style.userSelect = "none";
           main.style.opacity = "0";
           side.style.display = "none";
           hideAnim('paragraph');
+                if (screen.width <= 1024) {
+			sidebar.style.left = "-36%";
+                } else {
+        sidebar.style.left = "-300px";
+    }
         }
       }
 
@@ -447,6 +432,42 @@
 		}	
 
 		});
+
+
+document.addEventListener('DOMContentLoaded', function() {
+    var startingX;
+    var threshold = 50;
+    var sidebar = document.getElementById("sidebar");
+
+    document.body.addEventListener('touchstart', function(e) {
+        startingX = e.touches[0].clientX;
+        e.stopPropagation();
+    });
+
+    document.body.addEventListener('touchend', function(e) {
+        if (startingX && e.changedTouches && e.changedTouches.length) {
+            var endingX = e.changedTouches[0].clientX;
+            var deltaX = endingX - startingX;
+
+            if (startingX <= threshold && Math.abs(deltaX) > threshold) {
+                if (deltaX > 0) {
+                    sidebar.style.left = "0";
+                } else {
+                    sidebar.style.left = "-36%";
+                }
+            } else {
+                sidebar.style.left = "-36%";
+            }
+        }
+        startingX = null;
+        e.stopPropagation();
+    });
+
+    sidebar.addEventListener('touchstart', function(e) {
+        e.stopPropagation();
+    });
+});
+
     </script>
   
 
