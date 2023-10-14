@@ -1,0 +1,440 @@
+﻿<!DOCTYPE html>
+<html><head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type="text/css">
+      html {
+        -webkit-font-smoothing: antialiased;
+        text-rendering: optimizeLegibility;
+      }
+
+      body {
+        background-color: #000;
+        color: #e7e9ea;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      }
+
+      .main {
+        margin-left: 270px;
+        margin-right: 100px;
+        margin-top: 20px;
+        padding: 0px 20px;
+      }
+
+      .sidebar {
+        height: 100%;
+        width: 0px;
+        position: fixed;
+        z-index: 1;
+        top: 0;
+        left: 0;
+        background-color: #16181c;
+        overflow-x: hidden;
+        padding-top: 20px;
+        border-right: none;
+        transition: 0.15s;
+      }
+
+      .sidebar a {
+        color: #e7e9ea;
+        padding: 16px 4px 16px 4px;
+        display: block;
+        font-size: 18px;
+        font-weight: 500;
+        text-align: center;
+        margin: 24px 0px 24px 0px;
+        white-space: nowrap;
+        width: 100%;
+        cursor: pointer;
+        background: linear-gradient(90deg, #e7e9ea 50%, transparent 0) right -.0625rem bottom/220% 100%;
+        transition: background-position .4s cubic-bezier(.5, .15, .5, .85), text-decoration .2s cubic-bezier(.5, .15, .5, .85) .2s, color .2s cubic-bezier(.5, .15, .5, .85) .2s, -webkit-text-decoration .2s cubic-bezier(.5, .15, .5, .85) .2s;
+        text-decoration: underline;
+      }
+
+      .sidebar a:hover {
+        transition: background-position .4s cubic-bezier(.5, .15, .5, .85), text-decoration .2s cubic-bezier(.5, .15, .5, .85) .2s, color .2s cubic-bezier(.5, .15, .5, .85) .2s, -webkit-text-decoration .2s cubic-bezier(.5, .15, .5, .85) .2s;
+        background-position: 0 100%;
+        color: #16181c;
+        text-decoration: none;
+      }
+
+      .sidehover {
+        height: 100%;
+        width: 200px;
+        position: fixed;
+        z-index: 1;
+        top: 0;
+        left: 0;
+        overflow-x: hidden;
+        padding-top: 20px;
+        padding-left: 30px;
+        padding-right: 30px;
+      }
+
+      h1 {
+        font-size: 30px;
+        padding: 10px 10px 10px 10px;
+        margin-block-start: 0px;
+        margin-block-end: 0px;
+      }
+
+      .paragraph {
+        font-size: 18px;
+        margin-bottom: 15px;
+        border-radius: 5px;
+        padding: 10px 10px 10px 10px;
+        margin-top: 10px;
+        font-weight: normal;
+      }
+
+      @keyframes highlight {
+        0% {
+          background-color: rgba(112, 122, 143, 0.25);
+        }
+
+        100% {
+          background-color: transparent;
+        }
+      }
+
+      .unselectable {
+        user-select: none;
+        cursor: pointer;
+      }
+
+      .last {
+        margin-bottom: 0px !important;
+      }
+
+      p {
+        margin: 0px 0px 20px 0px;
+      }
+
+      ul {
+        margin: 0px 0px 20px 40px;
+        padding: 0px;
+      }
+
+      ol {
+        margin: 0px 0px 20px 40px;
+        padding: 0px;
+      }
+
+      li {
+        margin: 0px 0px 20px 20px;
+      }
+
+      h2 {
+        margin: 30px 0px 20px 0px;
+        display: block;
+        font-size: 22px;
+      }
+
+      .importantlist {
+        font-weight: 500;
+        margin: 0px 0px 30px 40px;
+      }
+
+      i {
+        font-weight: 500;
+      }
+
+      body::-webkit-scrollbar {
+        display: none;
+      }
+
+      .hidebuttonmobile{
+        right: 0;
+        top: 0;
+        height: 0%;
+        position: fixed;
+        width: 35px;
+        cursor: default;
+      }
+
+      @media only screen and (min-device-width : 320px) and (max-device-width : 1024px) {
+        .main {
+          margin: 5px 0px 0px 0px;
+          padding: 0px;
+
+        }
+
+        .sidehover {
+          width: 7%;
+        }
+
+		.sidebar {
+			padding-top: 0px;
+		}
+
+		.sidebar a {
+			background: none;
+			font-size: 10px;
+			margin: 8px 0px 8px 0px;
+			padding: 10px 0px 10px 0px;
+		}
+
+		.sidebar a:hover {
+        	background: none;
+        	color: #e7e9ea;
+        }
+
+        .paragraph {
+          margin: 0px 0px 0px 0px;
+          font-size: 10px;
+        }
+
+        h1 {
+          margin: 0px;
+          font-size: 18px;
+          padding: 0px 0px 0px 10px;
+        }
+
+        h2 {
+          margin: 15px 0px 10px 0px;
+          font-size: 15px;
+        }
+
+        .importantlist {
+          font-weight: 500;
+          margin: 0px 0px 15px 20px;
+        }
+
+        .ppanel {
+          margin: 0px 0px 10px 20px;
+        }
+
+        p {
+          margin: 0px 0px 10px 0px;
+        }
+
+        ul {
+          margin: 0px 0px 10px 20px;
+          padding: 0px;
+        }
+
+        li {
+          margin: 0px 0px 10px 10px;
+        }
+
+        .hidebuttonmobile{
+        height: 100%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div onclick="hide()" class="unselectable, hidebuttonmobile"></div>
+    <div class="main" id="main" style="display: block; user-select: auto;">
+      <h1 id="title1">Acizii nucleici</h1>
+      <div id="paragraph1" class="paragraph" style="animation: auto ease 0s 1 normal none running none;">
+  
+  <p>Materialul genetic responsabil de transmiterea ereditară a caracterelor este reprezentat de acizii nucleici. Cele două tipuri de acizi nucleici sunt:</p>
+  <ul>
+    <li>ADN (acidul dezoxiribonucleic)</li>
+    <li>ARN (acidul ribonucleic)</li>
+  </ul>
+  <p>Acizii nucleici sunt substanțe macromoleculare formate prin înțepătuirea unor molecule numite nucleotide. O nucleotidă este formată din:</p>
+  <ol type="a">
+    <li><p>Baze azotate:</p>
+      <ul>
+        <li>Purinice: adenina(A) și guanina(G) (prezente în ADN și ARN)</li>
+        <li>Pirimidinice: citozina(C) (în ADN și ARN), timina(T) (în ADN), uracil(U) (în ARN)</li>
+      </ul>
+    </li>
+    <li><p>Glucidul (zahăr): Este un monozaharid cu 5 atomi de carbon (pentoza) care dă numele celor două tipuri de acizi nucleici:</p>
+      <ul>
+        <li>Riboza (în ARN)</li>
+        <li>Dezoxiriboza (în ADN)</li>
+      </ul>
+    </li>
+    <li>Radicalul fosfat: Formează legături cu pentozele, creând astfel lanțuri sau catene polinucleotidice.</li>
+  </ol>
+</div>
+      <h1 id="title2">Mentiuni Despre Romani in Cronicile Istorice</h1>
+      <div id="paragraph2" class="paragraph" style="animation: auto ease 0s 1 normal none running none;">
+        
+      </div>
+      <h1 id="title3">Teoria Imigrationista</h1>
+      <div id="paragraph3" class="paragraph" style="animation: auto ease 0s 1 normal none running none;">
+      </div>
+      <h1 id="title4">Teoria Autohtonista</h1>
+      <div id="paragraph4" class="paragraph" style="animation: auto ease 0s 1 normal none running none;">
+      </div>
+    </div>
+    <div id="sidehover" class="sidehover" style="display: block;"></div>
+    <div id="sidebar" class="sidebar" style="width: 0px; border-right: none;">
+      <a onclick="title1()" class="unselectable">Etnogeneza</a>
+      <a onclick="title2()" class="unselectable">Mentiuni</a>
+      <a onclick="title3()" class="unselectable">Teoria Imigrationista</a>
+      <a onclick="title4()" class="unselectable">Teoria Autohtonista</a>
+    </div>
+    <script>
+      document.getElementById("sidehover").onmouseover = function() {
+        mouseOver()
+      };
+      document.getElementById("sidebar").onmouseover = function() {
+        mouseOver()
+      };
+      document.getElementById("sidehover").onmouseout = function() {
+        mouseOut()
+      };
+      document.getElementById("sidebar").onmouseout = function() {
+        mouseOut()
+      };
+
+	  function mouseOver() {
+    var sidebar = document.getElementById("sidebar");
+    if (screen.width <= 1024) {
+        sidebar.style.width = "35%";
+    } else {
+        sidebar.style.width = "270px";
+    }
+    sidebar.style.borderRight = "solid 1px #2f3336";
+}
+
+      function mouseOut() {
+        document.getElementById("sidebar").style.width = "0px";
+        document.getElementById("sidebar").style.borderRight = "none";
+      }
+
+      function title1() {
+		if(document.getElementById("main").style.userSelect === "auto"){
+        	document.getElementById("title1").scrollIntoView();
+			if (screen.width <= 1024) {
+			document.getElementById("sidebar").style.width = "0px";
+			document.getElementById("sidebar").style.borderRight = "none";
+			}
+    		 var as = document.getElementById("paragraph1")
+        	as.style.animation = "none";
+        	setTimeout(function() {
+          	as.style.animation = "highlight 1s linear";
+        	}, 10);
+		}
+      }
+
+      function title2() {
+		if(document.getElementById("main").style.userSelect === "auto"){
+        	document.getElementById("title2").scrollIntoView();
+			if (screen.width <= 1024) {
+			document.getElementById("sidebar").style.width = "0px";
+			document.getElementById("sidebar").style.borderRight = "none";
+			}
+    		 var as = document.getElementById("paragraph2")
+        	as.style.animation = "none";
+        	setTimeout(function() {
+          	as.style.animation = "highlight 1s linear";
+        	}, 10);
+		}
+      }
+
+      function title3() {
+		if(document.getElementById("main").style.userSelect === "auto"){
+        	document.getElementById("title3").scrollIntoView();
+			if (screen.width <= 1024) {
+			document.getElementById("sidebar").style.width = "0px";
+			document.getElementById("sidebar").style.borderRight = "none";
+			}
+    		 var as = document.getElementById("paragraph3")
+        	as.style.animation = "none";
+        	setTimeout(function() {
+          	as.style.animation = "highlight 1s linear";
+        	}, 10);
+		}
+      }
+
+      function title4() {
+		if(document.getElementById("main").style.userSelect === "auto"){
+        	document.getElementById("title4").scrollIntoView();
+			if (screen.width <= 1024) {
+			document.getElementById("sidebar").style.width = "0px";
+			document.getElementById("sidebar").style.borderRight = "none";
+			}
+    		 var as = document.getElementById("paragraph4")
+        	as.style.animation = "none";
+        	setTimeout(function() {
+          	as.style.animation = "highlight 1s linear";
+        	}, 10);
+		}
+      }
+
+      function title5() {
+		if(document.getElementById("main").style.userSelect === "auto"){
+        	document.getElementById("title5").scrollIntoView();
+			if (screen.width <= 1024) {
+			document.getElementById("sidebar").style.width = "0px";
+			document.getElementById("sidebar").style.borderRight = "none";
+			}
+    		 var as = document.getElementById("paragraph5")
+        	as.style.animation = "none";
+        	setTimeout(function() {
+          	as.style.animation = "highlight 1s linear";
+        	}, 10);
+		}
+      }
+
+      function title6() {
+		if(document.getElementById("main").style.userSelect === "auto"){
+        	document.getElementById("title6").scrollIntoView();
+			if (screen.width <= 1024) {
+			document.getElementById("sidebar").style.width = "0px";
+			document.getElementById("sidebar").style.borderRight = "none";
+			}
+    		 var as = document.getElementById("paragraph6")
+        	as.style.animation = "none";
+        	setTimeout(function() {
+          	as.style.animation = "highlight 1s linear";
+        	}, 10);
+		}
+      }
+      function hideAnim(className) {
+        var elements = document.getElementsByClassName(className);
+        for (var i = 0; i < elements.length; i++) {
+          elements[i].style.animation = 'none';
+        }
+      }
+
+      function hide() {
+        var main = document.getElementById("main");
+        var side = document.getElementById("sidehover");
+        if (main.style.color === "black") {
+          main.style.color = "#e7e9ea";
+          main.style.userSelect = "auto";
+          side.style.display = "block";
+          hideAnim('paragraph');
+        } else {
+	  document.getElementById("sidebar").style.width = "0px";
+	  document.getElementById("sidebar").style.borderRight = "none";
+          main.style.color = "black";
+          main.style.userSelect = "none";
+          side.style.display = "none";
+          hideAnim('paragraph');
+        }
+      }
+
+	  document.addEventListener('keydown', function(event){
+
+	  	if(event.keyCode === 87){
+			hide();
+		}
+		
+		if(event.keyCode === 49){
+			title1();
+		}
+
+		if(event.keyCode === 50){
+			title2();
+		}	
+		
+		if(event.keyCode === 51){
+			title3();
+		}	
+
+		if(event.keyCode === 52){
+			title4();
+		}	
+
+		});
+    </script>
+  
+
+</body></html>
