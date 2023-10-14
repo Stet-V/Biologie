@@ -2,6 +2,17 @@
 <html><head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <style type="text/css">
+
+::selection {
+    background-color: #e7e9ea;
+    color: #000; 
+}
+
+::-webkit-selection {
+    background-color: #e7e9ea;
+    color: #000; 
+}
+
       html {
         -webkit-font-smoothing: antialiased;
         text-rendering: optimizeLegibility;
@@ -224,8 +235,8 @@
   </head>
   <body>
     <div onclick="hide()" class="unselectable, hidebuttonmobile"></div>
-    <div class="main" id="main" style="display: block; user-select: auto;">
-      <h1 id="title1">Acizii nucleici</h1>
+    <div class="main" id="main">
+      <h1 id="title1">Acizii Nucleici</h1>
       <div id="paragraph1" class="paragraph" style="animation: auto ease 0s 1 normal none running none;">
   
   <p>Materialul genetic responsabil de transmiterea ereditară a caracterelor este reprezentat de acizii nucleici. Cele două tipuri de acizi nucleici sunt:</p>
@@ -234,20 +245,20 @@
     <li>ARN (acidul ribonucleic)</li>
   </ul>
   <p>Acizii nucleici sunt substanțe macromoleculare formate prin înțepătuirea unor molecule numite nucleotide. O nucleotidă este formată din:</p>
-  <ol type="a">
+  <ol class="last" type="A">
     <li><p>Baze azotate:</p>
-      <ul>
+      <ol type="a">
         <li>Purinice: adenina(A) și guanina(G) (prezente în ADN și ARN)</li>
-        <li>Pirimidinice: citozina(C) (în ADN și ARN), timina(T) (în ADN), uracil(U) (în ARN)</li>
-      </ul>
+        <li><p>Pirimidinice:</p> <ul><li>Citozina (C) (în ADN și ARN)</li><li> Timina (T) (în ADN)</li><li>Uracil (U) (în ARN)</li></ul></li>
+      </ol>
     </li>
     <li><p>Glucidul (zahăr): Este un monozaharid cu 5 atomi de carbon (pentoza) care dă numele celor două tipuri de acizi nucleici:</p>
-      <ul>
+      <ol type="a">
         <li>Riboza (în ARN)</li>
         <li>Dezoxiriboza (în ADN)</li>
-      </ul>
+      </ol>
     </li>
-    <li>Radicalul fosfat: Formează legături cu pentozele, creând astfel lanțuri sau catene polinucleotidice.</li>
+    <li class="last">Radicalul fosfat: Formează legături cu pentozele, creând astfel lanțuri sau catene polinucleotidice.</li>
   </ol>
 </div>
       <h1 id="title2">Mentiuni Despre Romani in Cronicile Istorice</h1>
@@ -263,7 +274,7 @@
     </div>
     <div id="sidehover" class="sidehover" style="display: block;"></div>
     <div id="sidebar" class="sidebar" style="width: 0px; border-right: none;">
-      <a onclick="title1()" class="unselectable">Etnogeneza</a>
+      <a onclick="title1()" class="unselectable">Acizii Nucleici</a>
       <a onclick="title2()" class="unselectable">Mentiuni</a>
       <a onclick="title3()" class="unselectable">Teoria Imigrationista</a>
       <a onclick="title4()" class="unselectable">Teoria Autohtonista</a>
@@ -396,16 +407,18 @@
       function hide() {
         var main = document.getElementById("main");
         var side = document.getElementById("sidehover");
-        if (main.style.color === "black") {
-          main.style.color = "#e7e9ea";
-          main.style.userSelect = "auto";
+        var sidebar = document.getElementById("sidebar");
+        if (main.style.opacity === "0") {
+          main.style.opacity = "1.0"
+	  main.style.userSelect = "auto";
           side.style.display = "block";
           hideAnim('paragraph');
         } else {
-	  document.getElementById("sidebar").style.width = "0px";
-	  document.getElementById("sidebar").style.borderRight = "none";
-          main.style.color = "black";
-          main.style.userSelect = "none";
+          main.style.opacity = "0";
+    	  sidebar.style.width = "0px";
+	  main.style.userSelect = "none";
+    	  sidebar.style.borderRight = "none";
+          main.style.opacity = "0";
           side.style.display = "none";
           hideAnim('paragraph');
         }
@@ -413,7 +426,7 @@
 
 	  document.addEventListener('keydown', function(event){
 
-	  	if(event.keyCode === 87){
+	  	if(event.keyCode === 77){
 			hide();
 		}
 		
@@ -436,5 +449,6 @@
 		});
     </script>
   
+
 
 </body></html>
