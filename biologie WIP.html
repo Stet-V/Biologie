@@ -24,14 +24,14 @@
         font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
       }
 
-      .main {
+      #main {
         margin-left: 270px;
         margin-right: 100px;
         margin-top: 20px;
         padding: 0px 20px;
       }
 
-      .sidebar {
+      #sidebar {
         height: 100%;
         position: fixed;
         z-index: 1;
@@ -45,7 +45,8 @@
         width: 270px;
       }
 
-      .sidebar a {
+
+      #sidebar a {
         color: #e7e9ea;
         padding: 16px 4px 16px 4px;
         display: block;
@@ -61,14 +62,14 @@
         text-decoration: underline;
       }
 
-      .sidebar a:hover {
+      #sidebar a:hover {
         transition: background-position .4s cubic-bezier(.5, .15, .5, .85), text-decoration .2s cubic-bezier(.5, .15, .5, .85) .2s, color .2s cubic-bezier(.5, .15, .5, .85) .2s, -webkit-text-decoration .2s cubic-bezier(.5, .15, .5, .85) .2s;
         background-position: 0 100%;
         color: #16181c;
         text-decoration: none;
       }
 
-      .sidehover {
+      #sidehover {
         height: 100%;
         width: 200px;
         position: fixed;
@@ -154,29 +155,29 @@
       }
 
       @media only screen and (min-device-width : 320px) and (max-device-width : 1024px) {
-        .main {
+        #main {
           margin: 5px 0px 0px 0px;
           padding: 0px;
 
         }
 
-        .sidehover {
-          width: 7%;
+        #sidehover {
+         width: 7%;
         }
 
-		.sidebar {
+		#sidebar {
 			padding-top: 0px;
 			width: 35%;
 		}
 
-		.sidebar a {
+		#sidebar a {
 			background: none;
 			font-size: 10px;
 			margin: 8px 0px 8px 0px;
 			padding: 10px 0px 10px 0px;
 		}
 
-		.sidebar a:hover {
+		#sidebar a:hover {
         	background: none;
         	color: #e7e9ea;
 		text-decoration: underline;
@@ -224,7 +225,7 @@
     </style>
   </head>
   <body>
-    <div class="main" id="main" style="opacity: 1; user-select: auto;">
+    <div id="main" style="opacity: 1; user-select: auto;">
       <h1 id="title1">Acizii Nucleici</h1>
       <div id="paragraph1" class="paragraph" style="animation: auto ease 0s 1 normal none running none;">
   
@@ -261,8 +262,8 @@
       <div id="paragraph4" class="paragraph" style="animation: auto ease 0s 1 normal none running none;">
       </div>
     </div>
-    <div id="sidehover" class="sidehover" style="display: block;"></div>
-    <div id="sidebar" class="sidebar" style="left: -300px;">
+    <div id="sidehover" style="display: block;"></div>
+    <div id="sidebar" style="left: -300px;">
       <a onclick="title1()" class="unselectable">Acizii Nucleici</a>
       <a onclick="title2()" class="unselectable">Mentiuni</a>
       <a onclick="title3()" class="unselectable">Teoria Imigrationista</a>
@@ -289,18 +290,14 @@
 
       function mouseOut() {
         var sidebar = document.getElementById("sidebar");
-        if (screen.width <= 1024) {
-			sidebar.style.left = "-36%";
-                } else {
         sidebar.style.left = "-300px";
-    }
       }
 
       function title1() {
 		if(document.getElementById("main").style.userSelect === "auto"){
         	document.getElementById("title1").scrollIntoView();
 			if (screen.width <= 1024) {
-			document.getElementById("sidebar").style.left = "-36%";
+			document.getElementById("sidebar").style.left = "-300px";
 			}
     		 var as = document.getElementById("paragraph1")
         	as.style.animation = "none";
@@ -314,7 +311,7 @@
 		if(document.getElementById("main").style.userSelect === "auto"){
         	document.getElementById("title2").scrollIntoView();
 			if (screen.width <= 1024) {
-			document.getElementById("sidebar").style.left = "-36%";
+			document.getElementById("sidebar").style.left = "-300px";
 			}
     		 var as = document.getElementById("paragraph2")
         	as.style.animation = "none";
@@ -328,7 +325,7 @@
 		if(document.getElementById("main").style.userSelect === "auto"){
         	document.getElementById("title3").scrollIntoView();
 			if (screen.width <= 1024) {
-			document.getElementById("sidebar").style.left = "-36%";
+			document.getElementById("sidebar").style.left = "-300px";
 			}
     		 var as = document.getElementById("paragraph3")
         	as.style.animation = "none";
@@ -342,7 +339,7 @@
 		if(document.getElementById("main").style.userSelect === "auto"){
         	document.getElementById("title4").scrollIntoView();
 			if (screen.width <= 1024) {
-			document.getElementById("sidebar").style.left = "-36%";
+			document.getElementById("sidebar").style.left = "-300px";
 			}
     		 var as = document.getElementById("paragraph4")
         	as.style.animation = "none";
@@ -356,7 +353,7 @@
 		if(document.getElementById("main").style.userSelect === "auto"){
         	document.getElementById("title5").scrollIntoView();
 			if (screen.width <= 1024) {
-			document.getElementById("sidebar").style.left = "-36%";
+			document.getElementById("sidebar").style.left = "-300px";
 			}
     		 var as = document.getElementById("paragraph5")
         	as.style.animation = "none";
@@ -370,7 +367,7 @@
 		if(document.getElementById("main").style.userSelect === "auto"){
         	document.getElementById("title6").scrollIntoView();
 			if (screen.width <= 1024) {
-			document.getElementById("sidebar").style.left = "-36%";
+			document.getElementById("sidebar").style.left = "-300px";
 			}
     		 var as = document.getElementById("paragraph6")
         	as.style.animation = "none";
@@ -401,11 +398,7 @@
           main.style.opacity = "0";
           side.style.display = "none";
           hideAnim('paragraph');
-                if (screen.width <= 1024) {
-			sidebar.style.left = "-36%";
-                } else {
         sidebar.style.left = "-300px";
-    }
         }
       }
 
@@ -453,10 +446,10 @@ document.addEventListener('DOMContentLoaded', function() {
                 if (deltaX > 0) {
                     sidebar.style.left = "0";
                 } else {
-                    sidebar.style.left = "-36%";
+                    sidebar.style.left = "-300px";
                 }
             } else {
-                sidebar.style.left = "-36%";
+                sidebar.style.left = "-300px";
             }
         }
         startingX = null;
@@ -468,6 +461,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 */
+
     </script>
   
 
